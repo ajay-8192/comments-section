@@ -1,0 +1,94 @@
+
+-----> 1. Section to accepts input for comments
+
+  - Input of text with max limit of 200 char
+  - On button click should add to comment section
+  - Clear text input on click to add
+  - Dummy uses can randomly select while submitting to comments or replies
+
+
+
+
+2. comment section data storage
+
+  Example Data storage
+  1. With no replies
+  {
+    comments: [
+      {
+        id: 1,
+        text: 'a',
+        user_id: 5
+        replies: []
+      }
+    ]
+  }
+
+  2. With replies
+  {
+    replies: [
+      {
+        id: 3,
+        text: 'c',
+        user_id: 5
+        replies: []
+      }
+    ]
+    comments: [
+      {
+        id: 2,
+        text: 'b',
+        user_id: 5
+        replies: [3]
+      }
+    ]
+  }
+
+
+  // 
+  replies: [
+    ...comments
+  ]
+
+  comments: [
+    {
+      id: '',
+      text: '',
+      user_id: 5
+      replies: [] // stores id of replies
+    }
+  ]
+
+  {
+    comments,
+    replies,
+    users
+  }
+
+
+
+
+3. store management
+
+comments: Which stores main comments
+replies: stores replies
+uses: to store user data
+
+
+
+
+
+Component structure
+
+Page
+  - Comment Input section with Add button
+  - Comments and replies section
+    - Comment
+      - Reply (Based on reply array in comments data)
+  - Reply can also have reply
+    - Reply 
+      - Reply (Based on reply array in reply data)
+
+
+  - Reply section
+    - Reply with button to add nested reply to current reply
